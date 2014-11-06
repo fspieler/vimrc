@@ -1,4 +1,11 @@
-:set number
+"line numbering
+set number
+
+"tab=4spaces
+set smartindent
+set tabstop=4
+set shiftwidth=4
+set expandtab
 
 "persistent visual mode after indent
 vnoremap < <gv
@@ -40,33 +47,19 @@ autocmd BufReadPost *
 noremap H ^
 noremap L $
 
-" Open, close, and enter pairs
-noremap! "" ""<left>
-noremap! '' ''<left>
- 
-noremap! (( ()<left>
-noremap! (<cr> (<cr>)<c-o>O
-noremap! (; ();<esc>hi
-noremap! (<cr>; (<cr>);<c-o>O
-noremap! ('; ('');<esc>hhi
-noremap! ("; ("");<esc>hhi
-noremap! (' ('')<esc>hi
-noremap! (" ("")<esc>hi
- 
-noremap! {{ {}<left>
-noremap! {<cr> {<cr>}<c-o>O
-noremap! {; {};<esc>hi
-noremap! {<cr>; {<cr>};<c-o>O
-noremap! {'; {''};<esc>hhi
-noremap! {"; {""};<esc>hhi
-noremap! {' {''}<esc>hi
-noremap! {" {""}<esc>hi
- 
-noremap! [[ []<left>
-noremap! [<cr> [<cr>]<c-o>O
-noremap! [; [];<esc>hi
-noremap! [<cr>; [<cr>];<c-o>O
-noremap! ['; [''];<esc>hhi
-noremap! ["; [""];<esc>hhi
-noremap! [' ['']<esc>hi
-noremap! [" [""]<esc>hi
+"move cursor by display lines
+setlocal wrap linebreak nolist
+set virtualedit=
+setlocal display+=lastline
+noremap <buffer> <silent> <Up> gk
+noremap <buffer> <silent> <Down> gj
+noremap <buffer> <silent> <Home> g<Home>
+noremap <buffer> <silent> <End> g<End>
+noremap <buffer> <silent> k gk
+noremap <buffer> <silent> j gj
+noremap <buffer> <silent> 0 g0
+noremap <buffer> <silent> $ g$
+inoremap <buffer> <silent> <Up> <C-o>gk
+inoremap <buffer> <silent> <Down> <C-o>gj
+inoremap <buffer> <silent> <Home> <C-o>g<Home>
+inoremap <buffer> <silent> <End> <C-o>g<End>
