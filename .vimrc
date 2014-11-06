@@ -7,6 +7,10 @@ set tabstop=4
 set shiftwidth=4
 set expandtab
 
+"auto word-wrap
+set tw=99
+set formatoptions+=t
+
 "persistent visual mode after indent
 vnoremap < <gv
 vnoremap > >gv
@@ -25,9 +29,9 @@ function! SuperTab()
 endfunction
 imap <Tab> <C-R>=SuperTab()<CR>
 
-"put red-lint at 80 characters
+"put red-line at 100 characters
 if exists('+colorcolumn')
-  set colorcolumn=80
+  set colorcolumn=100
 else
   au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
 endif
@@ -38,7 +42,7 @@ set sidescrolloff=15 "Number of cols from horizontal edge to start scrolling
 set sidescroll=1     "Number of cols to scroll at a time
 
 "jump to last cursor position when opening file
-autocmd BufReadPost *                                                           
+autocmd BufReadPost *                                    
 \ if line("'\"") > 0 && line ("'\"") <= line("$") |                             
 \   exe "normal g'\"" |                                                         
 \ endif
